@@ -4,17 +4,16 @@ from pathlib import Path
 
 from flask import Flask, g, redirect, request
 
-from mod_hello import mod_hello
-from mod_user import mod_user
-from mod_posts import mod_posts
-from mod_mfa import mod_mfa
-from mod_csp import mod_csp
-from mod_api import mod_api
-
 import libsession
+from mod_api import mod_api
+from mod_csp import mod_csp
+from mod_hello import mod_hello
+from mod_mfa import mod_mfa
+from mod_posts import mod_posts
+from mod_user import mod_user
 
-app = Flask('vulpy')
-app.config['SECRET_KEY'] = '123aa8a93bdde342c871564a62282af857bda14b3359fde95d0c5e4b321610c1'
+app = Flask('vul_app')
+app.config['SECRET_KEY'] = 'aaaaaaa'
 
 app.register_blueprint(mod_hello, url_prefix='/hello')
 app.register_blueprint(mod_user, url_prefix='/user')
@@ -34,11 +33,17 @@ if csp_file.is_file():
             line = line.replace('\n', '')
             if line:
                 csp += line
-        print('CSP:', csp)
+if csp:
+    print('CSP:', csp)
+
 
 @app.route('/')
 def do_home():
     return redirect('/posts')
+
+@app.route('/health')
+def do_health():
+    return ('', 200)
 
 @app.before_request
 def before_request():
@@ -50,5 +55,5 @@ def add_csp_headers(response):
         response.headers['Content-Security-Policy'] = csp
     return response
 
-app.run(debug=True, host='127.0.1.1', port=5001, extra_files='csp.txt')
 
+app.run(debug=True, host='0.0.0.0', port=5000, extra_files='csp.txt')

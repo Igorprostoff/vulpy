@@ -13,11 +13,11 @@ def keygen(username, password=None):
 
     key = hashlib.sha256(str(random.getrandbits(2048)).encode()).hexdigest()
 
-    for f in Path('/tmp/').glob('vulpy.apikey.' + username + '.*'):
+    for f in Path('/tmp/').glob('vul_app.apikey.' + username + '.*'):
         print('removing', f)
         f.unlink()
 
-    keyfile = '/tmp/vulpy.apikey.{}.{}'.format(username, key)
+    keyfile = '/tmp/vul_app.apikey.{}.{}'.format(username, key)
 
     Path(keyfile).touch()
 
@@ -30,7 +30,7 @@ def authenticate(request):
 
     key = request.headers['X-APIKEY']
 
-    for f in Path('/tmp/').glob('vulpy.apikey.*.' + key):
+    for f in Path('/tmp/').glob('vul_app.apikey.*.' + key):
         return f.name.split('.')[2]
 
     return None

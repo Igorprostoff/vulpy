@@ -1,16 +1,16 @@
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
-    <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-    <a href="/csp" class="w3-bar-item w3-button w3-padding-large">CSP</a>
+    <a href="/" class="w3-bar-item w3-button w3-padding-large">Домашняя страница</a>
+    <a href="/csp" class="w3-bar-item w3-button w3-padding-large">Контент-провайдеры</a>
     {# {% if g.session.username == 'admin' %}
-    <a href="/admin" class="w3-bar-item w3-button w3-padding-large">ADMIN</a>
+    <a href="/admin" class="w3-bar-item w3-button w3-padding-large">Админка</a>
     {% endif %} #}
     {% if g.session.username %}
-    <a href="/user/chpasswd" class="w3-bar-item w3-button w3-padding-large">CHPASSWD</a>
-    <a href="/mfa" class="w3-bar-item w3-button w3-padding-large">MFA</a>
-    <a href="/user/login" class="w3-bar-item w3-button w3-padding-large">LOGOUT</a>
+    <a href="/user/chpasswd" class="w3-bar-item w3-button w3-padding-large">Сменить пароль</a>
+    <a href="/mfa" class="w3-bar-item w3-button w3-padding-large">Многофакторная аутентификация</a>
+    <a href="/user/login" class="w3-bar-item w3-button w3-padding-large">Выйти</a>
     {% else %}
-    <a href="/user/login" class="w3-bar-item w3-button w3-padding-large">LOGIN</a>
+    <a href="/user/login" class="w3-bar-item w3-button w3-padding-large">Войти</a>
     {% endif %}
   </div>
 </div>

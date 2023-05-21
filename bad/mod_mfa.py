@@ -22,7 +22,7 @@ def do_mfa_view():
     else:
         libmfa.mfa_reset_secret(g.session['username'])
         secret = libmfa.mfa_get_secret(g.session['username'])
-        secret_url = pyotp.totp.TOTP(secret).provisioning_uri(g.session['username'], issuer_name="Vulpy")
+        secret_url = pyotp.totp.TOTP(secret).provisioning_uri(g.session['username'], issuer_name="vul_app")
         img = qrcode.make(secret_url)
 
         buffered = BytesIO()

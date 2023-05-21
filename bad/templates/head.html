@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Bad Vulpy - Web Application Security Lab</title>
+<title>Уязвимое приложение!</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/static/w3.css">
@@ -23,7 +23,7 @@ background-repeat: no-repeat;
 </style>
 <body class="w3-white">
 {% if session.username %}
-  <span style="float: right; margin-top: 10px; margin-right: 10px"><a href="/login">Logout</a></span>
+  <span style="float: right; margin-top: 10px; margin-right: 10px"><a href="/login">Выйти</a></span>
 {% endif %}
 
 {% include "messages.html" %}
