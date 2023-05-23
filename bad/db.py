@@ -5,9 +5,9 @@ from passlib.hash import pbkdf2_sha256
 def db_init():
 
     users = [
-        ('admin', pbkdf2_sha256.encrypt('123456')),
-        ('john', pbkdf2_sha256.encrypt('Password')),
-        ('tim', pbkdf2_sha256.encrypt('Vaider2'))
+        ('admin', pbkdf2_sha256.encrypt('adminPass')),
+        ('john', pbkdf2_sha256.encrypt('PasswordQwerty')),
+        ('tim', pbkdf2_sha256.encrypt('Vaider2Dart'))
     ]
 
     conn = sqlite3.connect('users.sqlite')

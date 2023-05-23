@@ -7,9 +7,9 @@ import sqlite3
 def db_init_users():
 
     users = [
-        ('admin', 'SuperSecret'),
-        ('elliot', '123123123'),
-        ('tim', '12345678')
+        ('admin', 'adminSecret'),
+        ('elliot', 'anotherSecret'),
+        ('tim', 'passwordSecured')
     ]
 
     conn = sqlite3.connect('db_users.sqlite')
